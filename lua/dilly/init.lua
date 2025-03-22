@@ -1,48 +1,40 @@
 local M = {}
 
--- Default configuration
-M.default_config = {
-	-- Base colors
-	bg = "#282c34",
-	fg = "#abb2bf",
-	dark_bg = "#21252b",
-	light_bg = "#2c313a",
+M.setup = function()
+	-- Load colors
+	local colors = require("dilly.colors")
 
-	-- UI elements
-	selection = "#3e4452",
-	comment = "#5c6370",
-	gutter = "#4b5263",
-	cursor = "#528bff",
+	-- Apply highlight groups
+	local highlight = vim.api.nvim_set_hl
+	local function hl(group, opts)
+		highlight(0, group, opts)
+	end
 
-	-- Syntax colors
-	red = "#e06c75",
-	orange = "#d19a66",
-	yellow = "#e5c07b",
-	green = "#98c379",
-	cyan = "#56b6c2",
-	blue = "#61afef",
-	purple = "#c678dd",
+	-- Basic UI Colors
+	hl("Normal", { fg = colors.fg, bg = colors.bg })
+	hl("Comment", { fg = colors.comment, italic = true })
+	hl("Constant", { fg = colors.constant })
+	hl("String", { fg = colors.string })
+	hl("Function", { fg = colors.func })
+	hl("Statement", { fg = colors.keyword, bold = true })
+	hl("Type", { fg = colors.type })
+	hl("Keyword", { fg = colors.keyword })
+	hl("Error", { fg = colors.error, bold = true })
+	hl("Todo", { fg = colors.todo, bold = true, italic = true })
 
-	-- Special colors
-	error = "#f44747",
-	warning = "#ff8800",
-	info = "#4fc1ff",
-	hint = "#56b6c2",
+	-- Treesitter Highlighting
+	hl("@comment", { link = "Comment" })
+	hl("@constant", { link = "Constant" })
+	hl("@string", { link = "String" })
+	hl("@function", { link = "Function" })
+	hl("@keyword", { link = "Keyword" })
+	hl("@type", { link = "Type" })
 
-	-- Additional variations
-	dark_red = "#be5046",
-	light_red = "#ff7a85",
-	dark_yellow = "#d19a66",
-	light_yellow = "#ffe082",
-}
-
-function M.setup(opts)
-	-- Merge user options with defaults
-	opts = vim.tbl_deep_extend("force", M.default_config, opts or {})
-
-	-- Load the colorscheme
-	require("dilly.colors").load(opts)
+	-- LSP Highlighting
+	hl("LspDiagnosticsDefaultError", { fg = colors.error })
+	hl("LspDiagnosticsDefaultWarning", { fg = colors.warning })
+	hl("LspDiagnosticsDefaultHint", { fg = colors.hint })
+	hl("LspDiagnosticsDefaultInformation", { fg = colors.info })
 end
 
--- This ensures the colorscheme works when loaded as a plugin
 return M
