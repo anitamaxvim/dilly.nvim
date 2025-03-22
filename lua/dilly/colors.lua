@@ -1,42 +1,6 @@
 local M = {}
 
-function M.load(opts)
-	-- Color Palette
-	local colors = {
-		-- Base colors
-		bg = opts.bg or "#282c34",
-		fg = opts.fg or "#abb2bf",
-		dark_bg = opts.dark_bg or "#21252b",
-		light_bg = opts.light_bg or "#2c313a",
-
-		-- UI elements
-		selection = opts.selection or "#3e4452",
-		comment = opts.comment or "#5c6370",
-		gutter = opts.gutter or "#4b5263",
-		cursor = opts.cursor or "#528bff",
-
-		-- Syntax colors
-		red = opts.red or "#e06c75",
-		orange = opts.orange or "#d19a66",
-		yellow = opts.yellow or "#e5c07b",
-		green = opts.green or "#98c379",
-		cyan = opts.cyan or "#56b6c2",
-		blue = opts.blue or "#61afef",
-		purple = opts.purple or "#c678dd",
-
-		-- Special colors
-		error = opts.error or "#f44747",
-		warning = opts.warning or "#ff8800",
-		info = opts.info or "#4fc1ff",
-		hint = opts.hint or "#56b6c2",
-
-		-- Additional variations
-		dark_red = opts.dark_red or "#be5046",
-		light_red = opts.light_red or "#ff7a85",
-		dark_yellow = opts.dark_yellow or "#d19a66",
-		light_yellow = opts.light_yellow or "#ffe082",
-	}
-
+function M.load(colors)
 	-- Clear any previous highlighting
 	vim.cmd("highlight clear")
 
@@ -45,7 +9,7 @@ function M.load(opts)
 	end
 
 	-- Set colorscheme name
-	vim.g.colors_name = "your_colorscheme"
+	vim.g.colors_name = "dilly"
 
 	-- Set terminal colors
 	vim.g.terminal_color_0 = colors.dark_bg
@@ -170,29 +134,29 @@ function M.load(opts)
 		GitSignsDelete = { fg = colors.red },
 
 		-- Plugin-specific highlighting
-		-- NvimTree
-		NvimTreeNormal = { fg = colors.fg, bg = colors.dark_bg },
-		NvimTreeFolderIcon = { fg = colors.blue },
-		NvimTreeFolderName = { fg = colors.blue },
-		NvimTreeOpenedFolderName = { fg = colors.blue, bold = true },
+		-- -- NvimTree
+		-- NvimTreeNormal = { fg = colors.fg, bg = colors.dark_bg },
+		-- NvimTreeFolderIcon = { fg = colors.blue },
+		-- NvimTreeFolderName = { fg = colors.blue },
+		-- NvimTreeOpenedFolderName = { fg = colors.blue, bold = true },
 
 		-- Telescope
-		TelescopeNormal = { fg = colors.fg, bg = colors.dark_bg },
-		TelescopeBorder = { fg = colors.comment, bg = colors.dark_bg },
-		TelescopePromptBorder = { fg = colors.comment, bg = colors.dark_bg },
-		TelescopeResultsBorder = { fg = colors.comment, bg = colors.dark_bg },
-		TelescopePreviewBorder = { fg = colors.comment, bg = colors.dark_bg },
-
-		-- Buffer line
-		BufferLineFill = { bg = colors.dark_bg },
-		BufferLineBackground = { fg = colors.comment, bg = colors.dark_bg },
-		BufferLineBufferSelected = { fg = colors.fg, bg = colors.bg, bold = true },
+		-- TelescopeNormal = { fg = colors.fg, bg = colors.dark_bg },
+		-- TelescopeBorder = { fg = colors.comment, bg = colors.dark_bg },
+		-- TelescopePromptBorder = { fg = colors.comment, bg = colors.dark_bg },
+		-- TelescopeResultsBorder = { fg = colors.comment, bg = colors.dark_bg },
+		-- TelescopePreviewBorder = { fg = colors.comment, bg = colors.dark_bg },
+		--
+		-- -- Buffer line
+		-- BufferLineFill = { bg = colors.dark_bg },
+		-- BufferLineBackground = { fg = colors.comment, bg = colors.dark_bg },
+		-- BufferLineBufferSelected = { fg = colors.fg, bg = colors.bg, bold = true },
 	}
 
 	-- Set highlight groups
-	for group, styles in pairs(highlights) do
-		M.highlight(group, styles)
-	end
+	-- for group, styles in pairs(highlights) do
+	-- 	M.highlight(group, styles)
+	-- end
 
 	-- Link some highlight groups to maintain compatibility
 	local links = {
@@ -210,39 +174,39 @@ function M.load(opts)
 end
 
 -- Helper function to set highlights
-function M.highlight(group, styles)
-	local style_attrs = {}
-
-	if styles.fg then
-		style_attrs[#style_attrs + 1] = "guifg=" .. styles.fg
-	end
-	if styles.bg then
-		style_attrs[#style_attrs + 1] = "guibg=" .. styles.bg
-	end
-
-	if styles.sp then
-		style_attrs[#style_attrs + 1] = "guisp=" .. styles.sp
-	end
-
-	if styles.bold then
-		style_attrs[#style_attrs + 1] = "bold"
-	end
-	if styles.italic then
-		style_attrs[#style_attrs + 1] = "italic"
-	end
-	if styles.underline then
-		style_attrs[#style_attrs + 1] = "underline"
-	end
-	if styles.undercurl then
-		style_attrs[#style_attrs + 1] = "undercurl"
-	end
-	if styles.reverse then
-		style_attrs[#style_attrs + 1] = "reverse"
-	end
-
-	local style_str = table.concat(style_attrs, " ")
-
-	vim.cmd(string.format("highlight %s %s", group, style_str))
-end
+-- function M.highlight(group, styles)
+-- 	local style_attrs = {}
+--
+-- 	if styles.fg then
+-- 		style_attrs[#style_attrs + 1] = "guifg=" .. styles.fg
+-- 	end
+-- 	if styles.bg then
+-- 		style_attrs[#style_attrs + 1] = "guibg=" .. styles.bg
+-- 	end
+--
+-- 	if styles.sp then
+-- 		style_attrs[#style_attrs + 1] = "guisp=" .. styles.sp
+-- 	end
+--
+-- 	if styles.bold then
+-- 		style_attrs[#style_attrs + 1] = "bold"
+-- 	end
+-- 	if styles.italic then
+-- 		style_attrs[#style_attrs + 1] = "italic"
+-- 	end
+-- 	if styles.underline then
+-- 		style_attrs[#style_attrs + 1] = "underline"
+-- 	end
+-- 	if styles.undercurl then
+-- 		style_attrs[#style_attrs + 1] = "undercurl"
+-- 	end
+-- 	if styles.reverse then
+-- 		style_attrs[#style_attrs + 1] = "reverse"
+-- 	end
+--
+-- 	local style_str = table.concat(style_attrs, " ")
+--
+-- 	vim.cmd(string.format("highlight %s %s", group, style_str))
+-- end
 
 return M
