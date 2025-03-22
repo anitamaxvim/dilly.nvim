@@ -26,6 +26,7 @@ local colors = {
 	peachPuff = "#d69d85",
 	gold = "#ffd700",
 	oliveGreen = "#68685B",
+  orange = "#ff8000",
 }
 
 return colors
