@@ -4,22 +4,22 @@ return {
 	-- General syntax highlighting
 	["@comment"] = { fg = colors.mediumSeaGreen, italic = true }, -- Comments in forest gre
 
-  ["@keyword"] = { fg = colors.lightLavender }, -- Keywords in orchid
+	["@keyword"] = { fg = colors.lightLavender }, -- Keywords in orchid
 	["@keyword.function"] = { fg = colors.lightLavender, bold = true }, -- Function keywords in cinnamon and bold
 	["@keyword.operator"] = { fg = colors.lightLavender }, -- Operators in light gray
-	
-  ["@variable"] = { fg = colors.oliveDrab }, -- Variables in gold
+
+	["@variable"] = { fg = colors.oliveDrab }, -- Variables in gold
 	["@variable.builtin"] = { fg = colors.oliveDrab }, -- Built-in variables in sky blue
 	["@variable.parameter"] = { fg = colors.orange },
-  ["@variable.member"] = { fg = colors.silver },
+	["@variable.member"] = { fg = colors.silver },
 
 	["@type"] = { fg = colors.gold }, -- Types in gold
-  ["@type.builtin"] = { fg = colors.gold }, -- Built-in types in gold
+	["@type.builtin"] = { fg = colors.gold }, -- Built-in types in gold
 
-  ["@function"] = { fg = colors.orange, bold = true }, -- Functions in cinnamon and bold
+	["@function"] = { fg = colors.orange, bold = true }, -- Functions in cinnamon and bold
 	["@function.builtin"] = { fg = colors.gold }, -- Built-in functions in sky blue
 
-  ["@constructor"] = { fg = colors.orange },
+	["@constructor"] = { fg = colors.orange },
 
 	["@string"] = { fg = colors.peachPuff }, -- Strings in rosy brown
 	["@string.regex"] = { fg = colors.peachPuff }, -- Regex strings in rosy brown
@@ -27,6 +27,8 @@ return {
 	["@number"] = { fg = colors.paleOlive }, -- Numbers in pale green
 	["@boolean"] = { fg = colors.skyBlue }, -- Booleans in sky blue
 	["@float"] = { fg = colors.paleOlive }, -- Floats in pale green
+
+	["@module"] = { fg = colors.oliveDrab },
 
 	-- Function Parameters
 	-- ["@parameter"] = { fg = colors.silver }, -- Parameters in silver

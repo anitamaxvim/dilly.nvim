@@ -14,6 +14,7 @@ function M.setup()
 		"dilly.highlights.treesitter",
 		"dilly.highlights.lsp",
 		"dilly.highlights.editor",
+    "dilly.highlights.plugins",
 	}
 
 	for _, mod in ipairs(modules) do

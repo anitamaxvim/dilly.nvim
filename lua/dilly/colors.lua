@@ -27,6 +27,7 @@ local colors = {
 	gold = "#ffd700",
 	oliveGreen = "#68685B",
   orange = "#ff8000",
+  darkGrey = "#191918"
 }
 
 return colors

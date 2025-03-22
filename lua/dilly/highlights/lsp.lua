@@ -6,6 +6,7 @@ return {
 	Warning = { fg = colors.oliveDrab, bold = true }, -- Warning messages in olive drab, bold
 	Information = { fg = colors.skyBlue }, -- Information messages in sky blue
 	Hint = { fg = colors.lightGray }, -- Hint messages in light gray
+  DiagnosticUnnecessary = {},
 
 	-- LSP Signs
 	LspDiagnosticsDefaultError = { fg = colors.rosyBrown }, -- Default error sign color
